@@ -1,45 +1,33 @@
-DNS Lookup Tool (React + Node + Express + MongoDB)
+# 🌐 DNS Lookup Protocol Project
 
-Run locally without Docker:
-1. Backend:
-   cd backend
-   npm install
-   # set MONGO_URI in .env or use default localhost
-   npm run dev
-
-2. Frontend:
-   cd frontend
-   npm install# 🌐 DNS Lookup Protocol Project
-
-A full-stack web application that allows users to perform DNS lookups using a friendly UI.  
-It resolves domain names (like `google.com`) into their IP addresses, stores lookup history in MongoDB, and provides REST API endpoints for developers.
+A full-stack web application that performs **DNS lookups** to resolve domain names into IP addresses.  
+It provides both a **REST API** and a **React-based user interface**, with lookup history stored in **MongoDB**.
 
 ---
 
 ## 🚀 Features
 
-✅ Perform DNS lookups for any domain name  
-✅ View real-time lookup results on a React interface  
-✅ Backend built with Node.js and Express  
-✅ MongoDB integration to log search history  
-✅ REST API with GET, POST, DELETE, and PATCH endpoints  
-✅ Docker setup for easy deployment  
-✅ Tailwind CSS interface (simple and responsive)
+- 🌍 Perform DNS lookups for any domain name  
+- ⚡ Instant results displayed via React frontend  
+- 💾 Lookup history saved in MongoDB  
+- 🔁 RESTful API with GET, POST, PATCH, DELETE endpoints  
+- 🐳 Docker support for one-command deployment  
+- 🎨 Clean responsive UI with Tailwind CSS  
 
 ---
 
 ## 🧠 Tech Stack
 
-| Layer | Technology Used |
-|:------|:----------------|
+| Layer | Technology |
+|:------|:------------|
 | Frontend | React.js + Tailwind CSS |
 | Backend | Node.js + Express.js |
 | Database | MongoDB (Mongoose) |
-| Deployment | Docker & Docker Compose |
+| Deployment | Docker + Docker Compose |
 
 ---
 
-## 📂 Project Structure
+## 📁 Folder Structure
 
 dns_lookup_project/
 ├── backend/
@@ -64,78 +52,77 @@ Copy code
 
 ## ⚙️ Setup Instructions
 
-### 🧩 Option 1: Run Locally
+### 🧩 Run Locally
 
-#### 1. Clone this repository
+#### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/<your-username>/dns-lookup-protocol.git
 cd dns-lookup-protocol
-2. Setup backend
+2️⃣ Setup Backend
 bash
 Copy code
 cd backend
 npm install
 cp .env.example .env
 npm run dev
-Make sure your .env file includes:
+Example .env file:
 
 ini
 Copy code
 MONGO_URI=mongodb://localhost:27017/dns_lookup
 PORT=5000
-3. Setup frontend
+3️⃣ Setup Frontend
 bash
 Copy code
 cd ../frontend
 npm install
 npm start
-Frontend runs on http://localhost:3000
-Backend runs on http://localhost:5000
+🖥️ App runs at:
+Frontend → http://localhost:3000
+Backend → http://localhost:5000
 
-🐳 Option 2: Run with Docker
+🐳 Run Using Docker
 If you have Docker installed:
 
 bash
 Copy code
 docker-compose up --build
-That’s it!
-Frontend → http://localhost:3000
-Backend API → http://localhost:5000/api
+Then open your browser at http://localhost:3000 🌍
+MongoDB, backend, and frontend will run automatically.
 
-📡 API Endpoints
+🔌 API Endpoints
 Method	Endpoint	Description
-GET	/api/dns	Fetch all saved DNS lookups
+GET	/api/dns	Get all saved DNS lookups
 POST	/api/dns	Perform a new DNS lookup
-DELETE	/api/dns/:id	Delete a DNS record
-PATCH	/api/dns/:id	Update a record (optional)
+DELETE	/api/dns/:id	Delete a lookup record
+PATCH	/api/dns/:id	Update a lookup record
 
-🖥️ Example UI
+🖥️ Example UI Preview
 pgsql
 Copy code
-+-------------------------------------------------------+
-| Domain: [ www.google.com ]  [ Lookup ]                |
-+-------------------------------------------------------+
-| Results:                                              |
-|  - google.com → 142.250.183.100                       |
-|  - facebook.com → 157.240.22.35                       |
-+-------------------------------------------------------+
-💡 Future Improvements
-Add reverse DNS lookup (IP → domain)
++--------------------------------------------------------+
+| 🌐 Enter Domain: [ www.google.com ] [ Lookup ]         |
++--------------------------------------------------------+
+| 📄 Results:                                            |
+|  google.com → 142.250.183.100                         |
+|  facebook.com → 157.240.22.35                         |
++--------------------------------------------------------+
+🧩 Example Backend Response
+json
+Copy code
+{
+  "domain": "google.com",
+  "ip": "142.250.183.100",
+  "timestamp": "2025-11-12T15:30:00Z"
+}
+💡 Future Enhancements
+🔄 Add reverse DNS (IP → Domain)
 
-Add user authentication (JWT)
+🗺️ Show geolocation info of resolved IPs
 
-Show geolocation info of resolved IPs
+🔐 Add user authentication (JWT)
+
+📈 Show lookup history with charts
 
 📜 License
-This project is open-source under the MIT License
-   npm start
-
-API Endpoints:
-GET /api/lookup?domain=example.com  -> Perform DNS lookup and save to MongoDB
-GET /api/history -> Last saved lookups (JSON)
-
-Docker (recommended for easy setup):
-From project root where docker-compose.yml is located:
-  docker-compose up --build
-
-This will start MongoDB, backend (port 5000), and frontend (port 3000 mapped to nginx:80).
+This project is released under the MIT License.
